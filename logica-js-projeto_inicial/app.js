@@ -1,8 +1,9 @@
-
 //Imprime um alert na tela assim que a pagina eh carregada
 alert("Boas vindas ao jogo do Numero Secreto");
+//Definindo uma variavel para armazenar o numero maximo do jogo
+let numMaximo = 300;
 // criando a variavel principal do numSecreto aleatoria
-let numeroSecreto = parseInt(Math.random() * 10 + 1);
+let numeroSecreto = parseInt(Math.random() * numMaximo + 1);
 //criando a variavel que vai receber o chute do usuario
 let chute;
 //variavel que guarda a quanditadade de tentativas
@@ -10,7 +11,7 @@ let tentativas = 1;
 // Loop para que o usuario possa tentar chutar ate acertar o numero
 while(chute != numeroSecreto){
     //Prompt para o usuario chutar um numero
-    chute = prompt("Escolha um numero entre 1 e 10: ");
+    chute = prompt(`Escolha um numero entre 1 e ${numMaximo}: `);
     //Verifica as condicoes do chute e numero secreto, caso seja igual usa o brake para finalizar o loop, caso contrario da dicas
     if (chute == numeroSecreto){
         break;
