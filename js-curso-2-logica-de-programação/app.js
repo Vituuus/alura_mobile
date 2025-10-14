@@ -16,9 +16,13 @@ function gerarNumeroAleatorio() {
 function verificarChute() {
     let chute = document.querySelector('input').value;
     if (chute == numeroSecreto){
-        alert('Você acertou!');
-    }else{
-        alert('Você errou!');
+        exibeTextoNaTela('h1','Você Acertou!');
+        exibeTextoNaTela('p','Parabéns você acertou o número secreto!')
+    } else {
+            if(chute < numeroSecreto){
+            exibeTextoNaTela('p', 'O número secreto é maior!')
+        } else {
+            exibeTextoNaTela('p','O número secreto é menor!');
+        }
     }
-    
 }
