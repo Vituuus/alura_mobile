@@ -19,6 +19,12 @@ function limparCampo(){
     chute = document.querySelector('input');
     chute.value = '';
 }
+function habilitaNovoJogo(){
+    document.getElementById('reiniciar').removeAttribute('disabled');
+}
+function desabilitaNovoJogo(){
+    document.getElementById('reiniciar').setAttribute('disabled', true);
+}
 
 function verificarChute() {
     let chute = document.querySelector('input').value;
@@ -27,7 +33,7 @@ function verificarChute() {
         let palavraTentativa = tentativas > 1 ? 'tentativas':'tentativa';
         let mensagemTentativas = `Parabens você acertou o número secreto com ${tentativas} ${palavraTentativa}!`
         exibeTextoNaTela('p',mensagemTentativas);
-        document.getElementById('reiniciar').removeAttribute('disabled');
+        habilitaNovoJogo();
     } else {
             if(chute < numeroSecreto){
             exibeTextoNaTela('p', 'O número secreto é maior!')
@@ -43,4 +49,5 @@ function reiniciarJogo(){
     limparCampo();
     exibirMensagemInicial();
     tentativas = 1
+    desabilitaNovoJogo();
 }
