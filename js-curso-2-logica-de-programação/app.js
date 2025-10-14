@@ -5,9 +5,11 @@ function exibeTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
 }
-
-exibeTextoNaTela('h1', 'O Jogo do Número Secreto!');
-exibeTextoNaTela('p', 'Digite um número de 1 a 10');
+function exibirMensagemInicial(){
+    exibeTextoNaTela('h1', 'O Jogo do Número Secreto!');
+    exibeTextoNaTela('p', 'Digite um número de 1 a 10');
+}
+exibirMensagemInicial();
 
 function gerarNumeroAleatorio() {
     return parseInt(Math.random() * 10 + 1);
@@ -35,4 +37,10 @@ function verificarChute() {
         tentativas++;
         limparCampo();
     }
+}
+function reiniciarJogo(){
+    numeroSecreto = gerarNumeroAleatorio();
+    limparCampo();
+    exibirMensagemInicial();
+    tentativas = 1
 }
