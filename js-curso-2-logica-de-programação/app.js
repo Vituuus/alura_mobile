@@ -1,3 +1,5 @@
+let listaDeNumerosSorteados = [];
+let limiteTentativas = 5;
 let numeroSecreto = gerarNumeroAleatorio();
 let tentativas = 1;
 
@@ -7,12 +9,23 @@ function exibeTextoNaTela(tag, texto) {
 }
 function exibirMensagemInicial(){
     exibeTextoNaTela('h1', 'O Jogo do Número Secreto!');
-    exibeTextoNaTela('p', 'Digite um número de 1 a 10');
+    exibeTextoNaTela('p', `Digite um número de 1 a ${limiteTentativas}`);
 }
 exibirMensagemInicial();
 
+
+if (quantidadeDeNumerosNaLista == limiteTentativas){
+    listaDeNumerosSorteados = [];
+}
 function gerarNumeroAleatorio() {
-    return parseInt(Math.random() * 10 + 1);
+    let numeroEscolhido =  parseInt(Math.random() * limiteTentativas + 1);
+    let quantidadeDeNumerosNaLista = listaDeNumerosSorteados.length;
+    if(listaDeNumerosSorteados.includes(numeroEscolhido)){
+        return gerarNumeroAleatorio();
+    }else {
+        listaDeNumerosSorteados.push(numeroEscolhido);
+        return numeroEscolhido;
+    }
 }
 
 function limparCampo(){
