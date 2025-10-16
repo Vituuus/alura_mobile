@@ -6,6 +6,7 @@ let tentativas = 1;
 function exibeTextoNaTela(tag, texto) {
     let campo = document.querySelector(tag);
     campo.innerHTML = texto;
+    responsiveVoice.speak(texto, 'Brazilian Portuguese Male');
 }
 function exibirMensagemInicial(){
     exibeTextoNaTela('h1', 'O Jogo do Número Secreto!');
